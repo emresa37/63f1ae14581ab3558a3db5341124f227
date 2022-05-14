@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func configureOpeningPage() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = ViewController()
+        window!.rootViewController = SpaceShipVC()
         window!.makeKeyAndVisible()
     }
 

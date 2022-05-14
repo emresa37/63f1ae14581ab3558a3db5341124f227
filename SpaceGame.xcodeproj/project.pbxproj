@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BDCC2B339631E1B35AA16C8D /* Pods_SpaceGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918D8EFC851A3D1AB187F76C /* Pods_SpaceGame.framework */; };
 		C362E4D5282FF00400A53A26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362E4D4282FF00400A53A26 /* AppDelegate.swift */; };
-		C362E4D9282FF00400A53A26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362E4D8282FF00400A53A26 /* ViewController.swift */; };
 		C362E4DE282FF00700A53A26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C362E4DD282FF00700A53A26 /* Assets.xcassets */; };
 		C362E4E1282FF00700A53A26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C362E4DF282FF00700A53A26 /* LaunchScreen.storyboard */; };
+		C37CCB3B282FFA6D005AC487 /* SpaceShipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB3A282FFA6D005AC487 /* SpaceShipVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D942CC37FE380ACF3092E7B /* Pods-SpaceGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceGame.debug.xcconfig"; path = "Target Support Files/Pods-SpaceGame/Pods-SpaceGame.debug.xcconfig"; sourceTree = "<group>"; };
+		918D8EFC851A3D1AB187F76C /* Pods_SpaceGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A25120214791A9811A109302 /* Pods-SpaceGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceGame.release.xcconfig"; path = "Target Support Files/Pods-SpaceGame/Pods-SpaceGame.release.xcconfig"; sourceTree = "<group>"; };
 		C362E4D1282FF00400A53A26 /* SpaceGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C362E4D4282FF00400A53A26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C362E4D8282FF00400A53A26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C362E4DD282FF00700A53A26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C362E4E0282FF00700A53A26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C362E4E2282FF00700A53A26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C37CCB3A282FFA6D005AC487 /* SpaceShipVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +31,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDCC2B339631E1B35AA16C8D /* Pods_SpaceGame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15176A26B9F2E54086786558 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				918D8EFC851A3D1AB187F76C /* Pods_SpaceGame.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		399A266C4E9978C772AA7525 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8D942CC37FE380ACF3092E7B /* Pods-SpaceGame.debug.xcconfig */,
+				A25120214791A9811A109302 /* Pods-SpaceGame.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C362E4C8282FF00300A53A26 = {
 			isa = PBXGroup;
 			children = (
 				C362E4D3282FF00400A53A26 /* SpaceGame */,
 				C362E4D2282FF00400A53A26 /* Products */,
+				399A266C4E9978C772AA7525 /* Pods */,
+				15176A26B9F2E54086786558 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,8 +76,8 @@
 		C362E4D3282FF00400A53A26 /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
+				C37CCB39282FFA5D005AC487 /* ViewControllers */,
 				C362E4E8282FF0C600A53A26 /* SupportFiles */,
-				C362E4D8282FF00400A53A26 /* ViewController.swift */,
 				C362E4E2282FF00700A53A26 /* Info.plist */,
 			);
 			path = SpaceGame;
@@ -69,6 +93,14 @@
 			path = SupportFiles;
 			sourceTree = "<group>";
 		};
+		C37CCB39282FFA5D005AC487 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB3A282FFA6D005AC487 /* SpaceShipVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -76,6 +108,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C362E4E5282FF00700A53A26 /* Build configuration list for PBXNativeTarget "SpaceGame" */;
 			buildPhases = (
+				A929CCCE187DE95AA2B3E94D /* [CP] Check Pods Manifest.lock */,
 				C362E4CD282FF00400A53A26 /* Sources */,
 				C362E4CE282FF00400A53A26 /* Frameworks */,
 				C362E4CF282FF00400A53A26 /* Resources */,
@@ -134,13 +167,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A929CCCE187DE95AA2B3E94D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpaceGame-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C362E4CD282FF00400A53A26 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C362E4D9282FF00400A53A26 /* ViewController.swift in Sources */,
 				C362E4D5282FF00400A53A26 /* AppDelegate.swift in Sources */,
+				C37CCB3B282FFA6D005AC487 /* SpaceShipVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +332,7 @@
 		};
 		C362E4E6282FF00700A53A26 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D942CC37FE380ACF3092E7B /* Pods-SpaceGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +360,7 @@
 		};
 		C362E4E7282FF00700A53A26 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A25120214791A9811A109302 /* Pods-SpaceGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
