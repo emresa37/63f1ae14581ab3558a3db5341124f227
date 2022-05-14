@@ -23,7 +23,23 @@ class ShipLocalModel {
     func fetchFromDB(closure: (Ship?)->Void) {
         data.removeAll()
         fetchShipData()
-        closure(data.first)
+        if data.count > 1 {
+            clearDB {
+                closure(nil)
+            }
+        }else {
+            closure(data.first)
+        }
+    }
+    
+    private func clearDB(closure: ()->Void) {
+        do {
+            let delete = tblShipDataDB.delete()
+            try db!.run(delete)
+            closure()
+        } catch {
+            print("delete failed: \(error)")
+        }
     }
     
     func saveShip(input: Ship) {
