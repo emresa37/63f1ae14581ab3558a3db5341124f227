@@ -6,5 +6,7 @@ target 'SpaceGame' do
   use_frameworks!
 
   # Pods for SpaceGame
+pod 'SnapKit'
+pod 'SQLite.swift'
 
 end
