@@ -18,6 +18,8 @@
 		C37CCB4A28300E1A005AC487 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB4928300E1A005AC487 /* SliderView.swift */; };
 		C37CCB4D2830554D005AC487 /* SpaceShipVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB4C2830554D005AC487 /* SpaceShipVM.swift */; };
 		C37CCB4F28305C8C005AC487 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB4E28305C8C005AC487 /* UIView+Extension.swift */; };
+		C37CCB5228305DF6005AC487 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5128305DF6005AC487 /* DBManager.swift */; };
+		C37CCB5528305FDB005AC487 /* ShipLocalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5428305FDB005AC487 /* ShipLocalModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		C37CCB4928300E1A005AC487 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		C37CCB4C2830554D005AC487 /* SpaceShipVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipVM.swift; sourceTree = "<group>"; };
 		C37CCB4E28305C8C005AC487 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C37CCB5128305DF6005AC487 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		C37CCB5428305FDB005AC487 /* ShipLocalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipLocalModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,8 @@
 		C362E4D3282FF00400A53A26 /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
+				C37CCB5328305FCE005AC487 /* Models */,
+				C37CCB5028305DE4005AC487 /* Managers */,
 				C37CCB4828300DE8005AC487 /* CustomComponents */,
 				C37CCB40282FFFC4005AC487 /* Helpers */,
 				C37CCB3D282FFB66005AC487 /* Base */,
@@ -149,6 +155,22 @@
 				C37CCB4C2830554D005AC487 /* SpaceShipVM.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C37CCB5028305DE4005AC487 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB5128305DF6005AC487 /* DBManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		C37CCB5328305FCE005AC487 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB5428305FDB005AC487 /* ShipLocalModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +290,9 @@
 				C37CCB42282FFFDC005AC487 /* ViewController+Extension.swift in Sources */,
 				C362E4D5282FF00400A53A26 /* AppDelegate.swift in Sources */,
 				C37CCB4F28305C8C005AC487 /* UIView+Extension.swift in Sources */,
+				C37CCB5528305FDB005AC487 /* ShipLocalModel.swift in Sources */,
 				C37CCB4D2830554D005AC487 /* SpaceShipVM.swift in Sources */,
+				C37CCB5228305DF6005AC487 /* DBManager.swift in Sources */,
 				C37CCB44283002DA005AC487 /* Constans.swift in Sources */,
 				C37CCB3F282FFB75005AC487 /* BaseVC.swift in Sources */,
 				C37CCB4A28300E1A005AC487 /* SliderView.swift in Sources */,

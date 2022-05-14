@@ -120,6 +120,10 @@ class SpaceShipVC: BaseVC {
                 self.capacitySlider.setValue(value: value)
             case .updateAvailablePoints(let avaiablePoints):
                 self.pointsLabel.text = avaiablePoints
+            case .setShipName(let name):
+                self.shipNameTF.text = name
+            case .shipSaved(let ship):
+                print("go next page with \(ship)")
             }
         }
     }
@@ -177,6 +181,7 @@ class SpaceShipVC: BaseVC {
             make.leading.equalTo(view.snp.leading).offset(20)
             make.trailing.equalTo(view.snp.trailing).offset(-20)
             make.height.equalTo(50)
+            make.bottom.equalToSuperview().offset(-20)
         }
     }
     
@@ -190,9 +195,10 @@ class SpaceShipVC: BaseVC {
     }
     
     @objc private func handleDoneButton() {
+        handleCloseKeyboard()
         let name = shipNameTF.text
         if name != "" {
-            viewModel.saveShip(with: name ?? "")
+            viewModel.saveShip(with: name!)
         }else {
             shipNameTF.layer.borderColor = UIColor.red.cgColor
         }
