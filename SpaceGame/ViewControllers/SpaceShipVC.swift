@@ -108,6 +108,11 @@ class SpaceShipVC: BaseVC {
         
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        pointsHolderView.layer.borderColor = Colors.textColor.cgColor
+        shipNameTF.layer.borderColor = Colors.textColor.cgColor
+    }
+    
     override func setupSubviews() {
         [pointsTitleLabel, pointsHolderView, dividerView, shipNameTF, stackView].forEach{view.addSubview($0)}
         [pointsLabel].forEach{pointsHolderView.addSubview($0)}
