@@ -13,6 +13,7 @@
 		C362E4E1282FF00700A53A26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C362E4DF282FF00700A53A26 /* LaunchScreen.storyboard */; };
 		C37CCB3B282FFA6D005AC487 /* SpaceShipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB3A282FFA6D005AC487 /* SpaceShipVC.swift */; };
 		C37CCB3F282FFB75005AC487 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB3E282FFB75005AC487 /* BaseVC.swift */; };
+		C37CCB42282FFFDC005AC487 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB41282FFFDC005AC487 /* ViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C362E4E2282FF00700A53A26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C37CCB3A282FFA6D005AC487 /* SpaceShipVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipVC.swift; sourceTree = "<group>"; };
 		C37CCB3E282FFB75005AC487 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		C37CCB41282FFFDC005AC487 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		C362E4D3282FF00400A53A26 /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
+				C37CCB40282FFFC4005AC487 /* Helpers */,
 				C37CCB3D282FFB66005AC487 /* Base */,
 				C37CCB39282FFA5D005AC487 /* ViewControllers */,
 				C362E4E8282FF0C600A53A26 /* SupportFiles */,
@@ -110,6 +113,14 @@
 				C37CCB3E282FFB75005AC487 /* BaseVC.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		C37CCB40282FFFC4005AC487 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB41282FFFDC005AC487 /* ViewController+Extension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37CCB42282FFFDC005AC487 /* ViewController+Extension.swift in Sources */,
 				C362E4D5282FF00400A53A26 /* AppDelegate.swift in Sources */,
 				C37CCB3F282FFB75005AC487 /* BaseVC.swift in Sources */,
 				C37CCB3B282FFA6D005AC487 /* SpaceShipVC.swift in Sources */,
