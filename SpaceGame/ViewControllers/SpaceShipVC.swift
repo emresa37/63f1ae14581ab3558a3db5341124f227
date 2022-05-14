@@ -174,18 +174,28 @@ class SpaceShipVC: BaseVC {
         
         doneButton.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom).offset(20)
-            make.leading.equalTo(view.snp.leading).offset(40)
-            make.trailing.equalTo(view.snp.trailing).offset(-40)
+            make.leading.equalTo(view.snp.leading).offset(20)
+            make.trailing.equalTo(view.snp.trailing).offset(-20)
             make.height.equalTo(50)
         }
     }
     
     override func setupActions() {
         doneButton.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
+        view.addTarget(self, action: #selector(handleCloseKeyboard))
+    }
+    
+    @objc private func handleCloseKeyboard() {
+        view.endEditing(true)
     }
     
     @objc private func handleDoneButton() {
-        print("Done button Clicked")
+        let name = shipNameTF.text
+        if name != "" {
+            viewModel.saveShip(with: name ?? "")
+        }else {
+            shipNameTF.layer.borderColor = UIColor.red.cgColor
+        }
     }
 
 }

@@ -80,5 +80,9 @@ class SpaceShipVM {
         binder?(.updateAvailablePoints(value: String(availablePoints)))
     }
     
+    func saveShip(with name: String) {
+        
+    }
+    
     
 }
