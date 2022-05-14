@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C362E4D5282FF00400A53A26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362E4D4282FF00400A53A26 /* AppDelegate.swift */; };
-		C362E4D7282FF00400A53A26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362E4D6282FF00400A53A26 /* SceneDelegate.swift */; };
 		C362E4D9282FF00400A53A26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362E4D8282FF00400A53A26 /* ViewController.swift */; };
-		C362E4DC282FF00400A53A26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C362E4DA282FF00400A53A26 /* Main.storyboard */; };
 		C362E4DE282FF00700A53A26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C362E4DD282FF00700A53A26 /* Assets.xcassets */; };
 		C362E4E1282FF00700A53A26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C362E4DF282FF00700A53A26 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,9 +16,7 @@
 /* Begin PBXFileReference section */
 		C362E4D1282FF00400A53A26 /* SpaceGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C362E4D4282FF00400A53A26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C362E4D6282FF00400A53A26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C362E4D8282FF00400A53A26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C362E4DB282FF00400A53A26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C362E4DD282FF00700A53A26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C362E4E0282FF00700A53A26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C362E4E2282FF00700A53A26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +52,21 @@
 		C362E4D3282FF00400A53A26 /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
-				C362E4D4282FF00400A53A26 /* AppDelegate.swift */,
-				C362E4D6282FF00400A53A26 /* SceneDelegate.swift */,
+				C362E4E8282FF0C600A53A26 /* SupportFiles */,
 				C362E4D8282FF00400A53A26 /* ViewController.swift */,
-				C362E4DA282FF00400A53A26 /* Main.storyboard */,
-				C362E4DD282FF00700A53A26 /* Assets.xcassets */,
-				C362E4DF282FF00700A53A26 /* LaunchScreen.storyboard */,
 				C362E4E2282FF00700A53A26 /* Info.plist */,
 			);
 			path = SpaceGame;
+			sourceTree = "<group>";
+		};
+		C362E4E8282FF0C600A53A26 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C362E4D4282FF00400A53A26 /* AppDelegate.swift */,
+				C362E4DD282FF00700A53A26 /* Assets.xcassets */,
+				C362E4DF282FF00700A53A26 /* LaunchScreen.storyboard */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +129,6 @@
 			files = (
 				C362E4E1282FF00700A53A26 /* LaunchScreen.storyboard in Resources */,
 				C362E4DE282FF00700A53A26 /* Assets.xcassets in Resources */,
-				C362E4DC282FF00400A53A26 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,21 +141,12 @@
 			files = (
 				C362E4D9282FF00400A53A26 /* ViewController.swift in Sources */,
 				C362E4D5282FF00400A53A26 /* AppDelegate.swift in Sources */,
-				C362E4D7282FF00400A53A26 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C362E4DA282FF00400A53A26 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C362E4DB282FF00400A53A26 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C362E4DF282FF00700A53A26 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +284,6 @@
 				INFOPLIST_FILE = SpaceGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +311,6 @@
 				INFOPLIST_FILE = SpaceGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
