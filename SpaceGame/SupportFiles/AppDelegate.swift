@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func configureOpeningPage() {
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = SpaceShipVC()
+        if #available(iOS 13.0, *) {
+            window!.backgroundColor = .systemBackground
+        } else {
+            window!.backgroundColor = .white
+        }
         window!.makeKeyAndVisible()
     }
 

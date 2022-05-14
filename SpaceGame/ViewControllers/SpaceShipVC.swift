@@ -7,23 +7,29 @@
 
 import UIKit
 
-class SpaceShipVC: UIViewController {
+class SpaceShipVC: BaseVC {
+    
+    private let pointsLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Dağıtılacak Puan"
+        return lbl
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .red
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func setupSubviews() {
+        [pointsLabel].forEach{view.addSubview($0)}
     }
-    */
+    
+    override func setupLayouts() {
+        pointsLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(20)
+            make.leading.equalToSuperview().offset(20)
+        }
+    }
 
 }
