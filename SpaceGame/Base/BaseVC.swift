@@ -15,10 +15,12 @@ class BaseVC: UIViewController {
 
         setupSubviews()
         setupLayouts()
+        setupActions()
     }
     
     func setupSubviews() {}
     func setupLayouts() {}
+    func setupActions() {}
     
 
 }

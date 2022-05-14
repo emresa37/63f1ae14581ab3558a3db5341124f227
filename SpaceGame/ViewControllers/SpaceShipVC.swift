@@ -9,11 +9,11 @@ import UIKit
 
 class SpaceShipVC: BaseVC {
     
-    enum Sliders: Int {
-        case durability = 0
-        case speed = 1
-        case capacity = 2
-    }
+    private let scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.bounces = false
+        return scroll
+    }()
     
     private let pointsTitleLabel: UILabel = {
         let lbl = UILabel()
@@ -48,6 +48,7 @@ class SpaceShipVC: BaseVC {
         tf.layer.borderWidth = 1.5
         tf.layer.borderColor = Colors.textColor.cgColor
         tf.font = UIFont.systemFont(ofSize: 15)
+        tf.placeholder = "Gemi adı"
         return tf
     }()
     
@@ -63,7 +64,7 @@ class SpaceShipVC: BaseVC {
         let view = SliderView()
         view.configure(title: "Dayanıklık", maxValue: 15, minValue: 0, startValue: 1)
         view.delegate = self
-        view.tag = Sliders.durability.rawValue
+        view.tag = SpaceShipVM.SliderType.durability.rawValue
         return view
     }()
     
@@ -71,7 +72,7 @@ class SpaceShipVC: BaseVC {
         let view = SliderView()
         view.configure(title: "Hız", maxValue: 15, minValue: 0, startValue: 1)
         view.delegate = self
-        view.tag = Sliders.speed.rawValue
+        view.tag = SpaceShipVM.SliderType.speed.rawValue
         return view
     }()
     
@@ -79,33 +80,27 @@ class SpaceShipVC: BaseVC {
         let view = SliderView()
         view.configure(title: "Kapasite", maxValue: 15, minValue: 0, startValue: 1)
         view.delegate = self
-        view.tag = Sliders.capacity.rawValue
+        view.tag = SpaceShipVM.SliderType.capacity.rawValue
         return view
     }()
     
-    private let minPoint: Float = 1
-    private let totalPoints: Float = 15
-    private var durability: Float = 1 {
-        didSet {
-            durabilitySlider.setValue(value: durability)
-        }
-    }
-    private var speed: Float = 1 {
-        didSet {
-            speedSlider.setValue(value: speed)
-        }
-    }
-    private var capacity: Float = 1 {
-        didSet {
-            capacitySlider.setValue(value: capacity)
-        }
-    }
+    private let doneButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Devam Et", for: .normal)
+        button.backgroundColor = Colors.textColor.withAlphaComponent(0.3)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        return button
+    }()
     
+    private lazy var viewModel: SpaceShipVM = {
+        let vm = SpaceShipVM()
+        return vm
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        bind()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -113,23 +108,44 @@ class SpaceShipVC: BaseVC {
         shipNameTF.layer.borderColor = Colors.textColor.cgColor
     }
     
+    private func bind() {
+        viewModel.binder  = { [weak self] (change) in
+            guard let self = self else { return }
+            switch change {
+            case .setDurability(let value):
+                self.durabilitySlider.setValue(value: value)
+            case .setSpeed(let value):
+                self.speedSlider.setValue(value: value)
+            case .setCapacity(let value):
+                self.capacitySlider.setValue(value: value)
+            case .updateAvailablePoints(let avaiablePoints):
+                self.pointsLabel.text = avaiablePoints
+            }
+        }
+    }
+    
     override func setupSubviews() {
-        [pointsTitleLabel, pointsHolderView, dividerView, shipNameTF, stackView].forEach{view.addSubview($0)}
+        view.addSubview(scrollView)
+        [pointsTitleLabel, pointsHolderView, dividerView, shipNameTF, stackView, doneButton].forEach{scrollView.addSubview($0)}
         [pointsLabel].forEach{pointsHolderView.addSubview($0)}
         [durabilitySlider, speedSlider, capacitySlider].forEach{stackView.addArrangedSubview($0)}
     }
     
     override func setupLayouts() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         pointsHolderView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(statusBarHeight() + 20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.trailing.equalTo(view.snp.trailing).offset(-20)
             make.height.equalTo(50)
             make.width.equalTo(60)
         }
         
         pointsTitleLabel.snp.makeConstraints { make in
             make.centerY.equalTo(pointsHolderView)
-            make.leading.equalToSuperview().offset(20)
+            make.leading.equalTo(view.snp.leading).offset(20)
         }
         
         pointsLabel.snp.makeConstraints { make in
@@ -138,29 +154,38 @@ class SpaceShipVC: BaseVC {
         
         dividerView.snp.makeConstraints { make in
             make.top.equalTo(pointsHolderView.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalTo(view.snp.leading).offset(20)
+            make.trailing.equalTo(view.snp.trailing).offset(-20)
             make.height.equalTo(2)
         }
         
         shipNameTF.snp.makeConstraints { make in
             make.top.equalTo(dividerView.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalTo(view.snp.leading).offset(20)
+            make.trailing.equalTo(view.snp.trailing).offset(-20)
             make.height.equalTo(40)
         }
         
         stackView.snp.makeConstraints { make in
             make.top.equalTo(shipNameTF.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalTo(view.snp.leading).offset(20)
+            make.trailing.equalTo(view.snp.trailing).offset(-20)
         }
         
+        doneButton.snp.makeConstraints { make in
+            make.top.equalTo(stackView.snp.bottom).offset(20)
+            make.leading.equalTo(view.snp.leading).offset(40)
+            make.trailing.equalTo(view.snp.trailing).offset(-40)
+            make.height.equalTo(50)
+        }
     }
     
-    private func configureTotalPoints() {
-        let availablePoints = Int(totalPoints - (speed + capacity + durability))
-        pointsLabel.text = String(availablePoints)
+    override func setupActions() {
+        doneButton.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
+    }
+    
+    @objc private func handleDoneButton() {
+        print("Done button Clicked")
     }
 
 }
@@ -168,37 +193,8 @@ class SpaceShipVC: BaseVC {
 
 extension SpaceShipVC: SliderViewProtocol {
     func sliderValueUpdated(tag: Int, value: Float) {
-        switch tag {
-        case Sliders.durability.rawValue:
-            if value < minPoint {
-                durability = minPoint
-                return
-            }
-            let availablePoints = Float(totalPoints - (speed + capacity))
-            let calculated = value < availablePoints ? value : availablePoints
-            durability = calculated
-            configureTotalPoints()
-        case Sliders.speed.rawValue:
-            if value < minPoint {
-                speed = minPoint
-                return
-            }
-            let availablePoints = Float(totalPoints - (durability + capacity))
-            let calculated = value < availablePoints ? value : availablePoints
-            speed = calculated
-            configureTotalPoints()
-        case Sliders.capacity.rawValue:
-            if value < minPoint {
-                capacity = minPoint
-                return
-            }
-            let availablePoints = Float(totalPoints - (durability + speed))
-            let calculated = value < availablePoints ? value : availablePoints
-            capacity = calculated
-            configureTotalPoints()
-        default:
-            print("unExpected Value")
-        }
+        guard let type = SpaceShipVM.SliderType(rawValue: tag) else { return }
+        viewModel.handleValueChange(for:  type, value: value)
     }
     
     
