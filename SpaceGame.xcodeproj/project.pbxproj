@@ -15,6 +15,7 @@
 		C37CCB3F282FFB75005AC487 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB3E282FFB75005AC487 /* BaseVC.swift */; };
 		C37CCB42282FFFDC005AC487 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB41282FFFDC005AC487 /* ViewController+Extension.swift */; };
 		C37CCB44283002DA005AC487 /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB43283002DA005AC487 /* Constans.swift */; };
+		C37CCB4A28300E1A005AC487 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB4928300E1A005AC487 /* SliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C37CCB3E282FFB75005AC487 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		C37CCB41282FFFDC005AC487 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		C37CCB43283002DA005AC487 /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
+		C37CCB4928300E1A005AC487 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		C362E4D3282FF00400A53A26 /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
+				C37CCB4828300DE8005AC487 /* CustomComponents */,
 				C37CCB40282FFFC4005AC487 /* Helpers */,
 				C37CCB3D282FFB66005AC487 /* Base */,
 				C37CCB39282FFA5D005AC487 /* ViewControllers */,
@@ -124,6 +127,14 @@
 				C37CCB41282FFFDC005AC487 /* ViewController+Extension.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C37CCB4828300DE8005AC487 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB4928300E1A005AC487 /* SliderView.swift */,
+			);
+			path = CustomComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +255,7 @@
 				C362E4D5282FF00400A53A26 /* AppDelegate.swift in Sources */,
 				C37CCB44283002DA005AC487 /* Constans.swift in Sources */,
 				C37CCB3F282FFB75005AC487 /* BaseVC.swift in Sources */,
+				C37CCB4A28300E1A005AC487 /* SliderView.swift in Sources */,
 				C37CCB3B282FFA6D005AC487 /* SpaceShipVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
