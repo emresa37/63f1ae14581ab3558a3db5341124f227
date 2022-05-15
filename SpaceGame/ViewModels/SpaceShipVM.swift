@@ -84,6 +84,15 @@ class SpaceShipVM {
         binder?(.updateAvailablePoints(value: String(availablePoints)))
     }
     
+    func validatePoints() -> Bool {
+        let total = durability + speed + capacity
+        if total < totalPoints {
+            return false
+        }else {
+            return true
+        }
+    }
+    
     func saveShip(with name: String) {
         if binder == nil {
             fatalError("Error - you must have set 'binder' before save ship")

@@ -201,10 +201,12 @@ class SpaceShipVC: BaseVC {
     @objc private func handleDoneButton() {
         handleCloseKeyboard()
         let name = shipNameTF.text
-        if name != "" {
-            viewModel.saveShip(with: name!)
-        }else {
+        if !(name != "") {
             shipNameTF.layer.borderColor = UIColor.red.cgColor
+        } else if !viewModel.validatePoints() {
+            pointsHolderView.layer.borderColor = UIColor.red.cgColor
+        } else {
+            viewModel.saveShip(with: name!)
         }
     }
 
