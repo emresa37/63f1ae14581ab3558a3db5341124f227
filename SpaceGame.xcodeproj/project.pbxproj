@@ -19,7 +19,11 @@
 		C37CCB4D2830554D005AC487 /* SpaceShipVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB4C2830554D005AC487 /* SpaceShipVM.swift */; };
 		C37CCB4F28305C8C005AC487 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB4E28305C8C005AC487 /* UIView+Extension.swift */; };
 		C37CCB5228305DF6005AC487 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5128305DF6005AC487 /* DBManager.swift */; };
-		C37CCB5528305FDB005AC487 /* ShipLocalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5428305FDB005AC487 /* ShipLocalModel.swift */; };
+		C37CCB5528305FDB005AC487 /* ShipDbManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5428305FDB005AC487 /* ShipDbManager.swift */; };
+		C37CCB572830EF4C005AC487 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB562830EF4C005AC487 /* MainTabbarController.swift */; };
+		C37CCB592830F1CC005AC487 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB582830F1CC005AC487 /* Ship.swift */; };
+		C37CCB5B2830F51D005AC487 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5A2830F51D005AC487 /* HomeVC.swift */; };
+		C37CCB5D2830F544005AC487 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5C2830F544005AC487 /* FavoritesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +43,11 @@
 		C37CCB4C2830554D005AC487 /* SpaceShipVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipVM.swift; sourceTree = "<group>"; };
 		C37CCB4E28305C8C005AC487 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C37CCB5128305DF6005AC487 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
-		C37CCB5428305FDB005AC487 /* ShipLocalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipLocalModel.swift; sourceTree = "<group>"; };
+		C37CCB5428305FDB005AC487 /* ShipDbManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipDbManager.swift; sourceTree = "<group>"; };
+		C37CCB562830EF4C005AC487 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		C37CCB582830F1CC005AC487 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
+		C37CCB5A2830F51D005AC487 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		C37CCB5C2830F544005AC487 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				C37CCB3A282FFA6D005AC487 /* SpaceShipVC.swift */,
+				C37CCB5A2830F51D005AC487 /* HomeVC.swift */,
+				C37CCB5C2830F544005AC487 /* FavoritesVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -128,6 +138,7 @@
 			children = (
 				C37CCB3E282FFB75005AC487 /* BaseVC.swift */,
 				C37CCB43283002DA005AC487 /* Constans.swift */,
+				C37CCB562830EF4C005AC487 /* MainTabbarController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -160,6 +171,7 @@
 		C37CCB5028305DE4005AC487 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C37CCB5428305FDB005AC487 /* ShipDbManager.swift */,
 				C37CCB5128305DF6005AC487 /* DBManager.swift */,
 			);
 			path = Managers;
@@ -168,7 +180,7 @@
 		C37CCB5328305FCE005AC487 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C37CCB5428305FDB005AC487 /* ShipLocalModel.swift */,
+				C37CCB582830F1CC005AC487 /* Ship.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,11 +300,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C37CCB42282FFFDC005AC487 /* ViewController+Extension.swift in Sources */,
+				C37CCB592830F1CC005AC487 /* Ship.swift in Sources */,
 				C362E4D5282FF00400A53A26 /* AppDelegate.swift in Sources */,
 				C37CCB4F28305C8C005AC487 /* UIView+Extension.swift in Sources */,
-				C37CCB5528305FDB005AC487 /* ShipLocalModel.swift in Sources */,
+				C37CCB5D2830F544005AC487 /* FavoritesVC.swift in Sources */,
+				C37CCB5B2830F51D005AC487 /* HomeVC.swift in Sources */,
+				C37CCB5528305FDB005AC487 /* ShipDbManager.swift in Sources */,
 				C37CCB4D2830554D005AC487 /* SpaceShipVM.swift in Sources */,
 				C37CCB5228305DF6005AC487 /* DBManager.swift in Sources */,
+				C37CCB572830EF4C005AC487 /* MainTabbarController.swift in Sources */,
 				C37CCB44283002DA005AC487 /* Constans.swift in Sources */,
 				C37CCB3F282FFB75005AC487 /* BaseVC.swift in Sources */,
 				C37CCB4A28300E1A005AC487 /* SliderView.swift in Sources */,

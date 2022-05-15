@@ -22,7 +22,7 @@ class SpaceShipVM {
         case setCapacity(value: Float)
         case setShipName(value: String)
         case updateAvailablePoints(value: String)
-        case shipSaved(ship: Ship)
+        case shipSaved(ship: ShipDbModel)
     }
     
     private var hasSavedShip = false
@@ -47,7 +47,7 @@ class SpaceShipVM {
         }
     }
     
-    private let localDB = ShipLocalModel()
+    private let localDB = ShipDbManager()
     var binder: ((_ change: Change) -> Void)? {
         didSet {
             fetchShipData()
@@ -92,7 +92,7 @@ class SpaceShipVM {
         if binder == nil {
             return
         }
-        let ship = Ship(name: name,
+        let ship = ShipDbModel(name: name,
                         durability: Int(durability),
                         speed: Int(speed),
                         capacity: Int(capacity))

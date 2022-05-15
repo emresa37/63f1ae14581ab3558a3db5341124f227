@@ -123,7 +123,10 @@ class SpaceShipVC: BaseVC {
             case .setShipName(let name):
                 self.shipNameTF.text = name
             case .shipSaved(let ship):
-                print("go next page with \(ship)")
+                Ship.setup(ship)
+                let vc = MainTabbarController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
             }
         }
     }

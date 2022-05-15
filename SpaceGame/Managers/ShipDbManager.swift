@@ -8,19 +8,19 @@
 import Foundation
 import SQLite
 
-class ShipLocalModel {
+class ShipDbManager {
     
     private let db: Connection?
     
     private let tblShipDataDB = Table("spaceship")
     
-    private var data = [Ship]()
+    private var data = [ShipDbModel]()
     
     init() {
         db = DBManager.shared.db
     }
     
-    func fetchFromDB(closure: (Ship?)->Void) {
+    func fetchFromDB(closure: (ShipDbModel?)->Void) {
         data.removeAll()
         fetchShipData()
         if data.count > 1 {
@@ -42,7 +42,7 @@ class ShipLocalModel {
         }
     }
     
-    func saveShip(input: Ship) {
+    func saveShip(input: ShipDbModel) {
         do {
             let insert = tblShipDataDB.insert(
                 ShipDBExpressions.name <- input.name,
@@ -56,7 +56,7 @@ class ShipLocalModel {
         }
     }
     
-    func updateShip(input: Ship) {
+    func updateShip(input: ShipDbModel) {
         do {
             let update = tblShipDataDB.update(
                 ShipDBExpressions.name <- input.name,
@@ -73,13 +73,13 @@ class ShipLocalModel {
 }
 
 //MARK: Fetching data
-extension ShipLocalModel {
+extension ShipDbManager {
     private func fetchShipData() {
         do {
             guard let items = try db?.prepare(self.tblShipDataDB) else { return }
             
             for ship in items {
-                let item = Ship(name: ship[ShipDBExpressions.name],
+                let item = ShipDbModel(name: ship[ShipDBExpressions.name],
                                 durability: ship[ShipDBExpressions.durability],
                                 speed: ship[ShipDBExpressions.speed],
                                 capacity: ship[ShipDBExpressions.capacity])
@@ -92,7 +92,7 @@ extension ShipLocalModel {
 }
 
 //MARK: Expressions
-extension ShipLocalModel {
+extension ShipDbManager {
     private struct ShipDBExpressions {
         static let name = Expression<String>("name")
         static let durability = Expression<Int>("durability")
@@ -101,7 +101,7 @@ extension ShipLocalModel {
     }
 }
 
-struct Ship {
+struct ShipDbModel {
     var name: String
     var durability: Int
     var speed: Int
