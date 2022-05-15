@@ -20,6 +20,8 @@ class Ship {
     fileprivate(set) var EUS: Int = 0
     fileprivate(set) var DS: Int = 0
     fileprivate(set) var health: Int = 100
+    
+    fileprivate(set) var currentStation: Station?
 
     class func setup(_ config: ShipDbModel){
         Ship.config = config
@@ -52,6 +54,27 @@ class Ship {
         }else {
             return true
         }
+    }
+    
+    func setCurrentStation(station: Station) {
+        self.currentStation = station
+    }
+    
+    func travel(to station: Station) -> Station {
+        var travelPoint = station
+        EUS = EUS - travelPoint.travelTime
+        if UGS > (travelPoint.need ?? 0) {
+            UGS = travelPoint.need ?? 0
+            travelPoint.stock = (travelPoint.stock ?? 0) + (travelPoint.need ?? 0)
+            travelPoint.need = 0
+        }else {
+            travelPoint.need = (travelPoint.need ?? 0) - UGS
+            travelPoint.stock = (travelPoint.stock ?? 0) + UGS
+            UGS = 0
+        }
+        setCurrentStation(station: station)
+        shipUpdated()
+        return travelPoint
     }
     
     private func shipUpdated() {

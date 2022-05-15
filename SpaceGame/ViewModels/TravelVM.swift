@@ -53,11 +53,24 @@ class TravelVM {
             switch result {
             case .success(let stations):
                 DispatchQueue.main.async {
+                    guard let first = stations.first else { return }
+                    Ship.shared.setCurrentStation(station: first)
                     self.stations = stations
                 }
             case .failure(let error):
                 print("error: \(error)")
             }
+        }
+    }
+    
+    func travel(to station: Station) {
+        if station.canTravel {
+            let travelledStation = Ship.shared.travel(to: station)
+            let travelledIndex = self.stations.firstIndex(where: {
+                return $0.name == travelledStation.name
+            })
+            guard let index = travelledIndex else { return }
+            stations[index] = travelledStation
         }
     }
     

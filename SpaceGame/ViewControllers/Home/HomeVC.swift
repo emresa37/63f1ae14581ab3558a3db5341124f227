@@ -216,6 +216,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as! StationCCell
         let station = travelVM.stations[indexPath.row]
         cell.configure(station: station)
+        cell.delegate = self
         return cell
     }
     
@@ -223,5 +224,14 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         return CGSize(width: screenSize.width - 120, height: screenSize.width - 120)
     }
     
+    
+}
+
+
+extension HomeVC: StationCCellProtocol {
+    func travelButtonClicked(for station: Station?) {
+        guard let station = station else { return }
+        travelVM.travel(to: station)
+    }
     
 }

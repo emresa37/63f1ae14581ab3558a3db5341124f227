@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol StationCCellProtocol: AnyObject {
+    func travelButtonClicked(for station: Station?)
+}
+
 class StationCCell: UICollectionViewCell {
     
     private let holderView: UIView = {
@@ -47,7 +51,13 @@ class StationCCell: UICollectionViewCell {
         return button
     }()
     
+    weak var delegate: StationCCellProtocol!
     private var station: Station?
+    private var isTravelButtonActive: Bool = true {
+        didSet {
+            travelButton.backgroundColor = isTravelButtonActive ? UIColor.systemBlue : Colors.textColor.withAlphaComponent(0.3)
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -101,13 +111,23 @@ class StationCCell: UICollectionViewCell {
     }
     
     @objc private func handleTravelButton() {
-        print("handle Travel button")
+        if isTravelButtonActive {
+            delegate.travelButtonClicked(for: station)
+        }
     }
     
     func configure(station: Station) {
         self.station = station
         stationNameLabel.text = station.name
-        
+        capacityLabel.text = "\(station.capacity ?? 0)/\(station.stock ?? 0)"
+        eusLabel.text = "\(station.travelTime) EUS"
+        if station.isCurrentStation {
+            isTravelButtonActive = false
+        }else if !station.canTravel {
+            isTravelButtonActive = false
+        }else {
+            isTravelButtonActive = true
+        }
     }
     
     required init?(coder: NSCoder) {
