@@ -25,6 +25,16 @@
 		C37CCB5B2830F51D005AC487 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5A2830F51D005AC487 /* HomeVC.swift */; };
 		C37CCB5D2830F544005AC487 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5C2830F544005AC487 /* FavoritesVC.swift */; };
 		C37CCB5F28312F2F005AC487 /* TravelVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5E28312F2F005AC487 /* TravelVM.swift */; };
+		C37CCB64283137E0005AC487 /* ServiceConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB63283137E0005AC487 /* ServiceConstans.swift */; };
+		C37CCB6628313865005AC487 /* ErrorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB6528313865005AC487 /* ErrorKey.swift */; };
+		C37CCB6A283138EA005AC487 /* StationsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB69283138EA005AC487 /* StationsResponseModel.swift */; };
+		C37CCB6C28313982005AC487 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB6B28313982005AC487 /* Services.swift */; };
+		C37CCB6E283139AE005AC487 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB6D283139AE005AC487 /* ServiceManager.swift */; };
+		C37CCB70283139BE005AC487 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB6F283139BE005AC487 /* LogManager.swift */; };
+		C37CCB72283139DE005AC487 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB71283139DE005AC487 /* RequestModel.swift */; };
+		C37CCB74283139FB005AC487 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB73283139FB005AC487 /* ResponseModel.swift */; };
+		C37CCB7628313A0B005AC487 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB7528313A0B005AC487 /* ErrorModel.swift */; };
+		C37CCB7828313C6E005AC487 /* StationsRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB7728313C6E005AC487 /* StationsRequestModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +60,16 @@
 		C37CCB5A2830F51D005AC487 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		C37CCB5C2830F544005AC487 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		C37CCB5E28312F2F005AC487 /* TravelVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelVM.swift; sourceTree = "<group>"; };
+		C37CCB63283137E0005AC487 /* ServiceConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConstans.swift; sourceTree = "<group>"; };
+		C37CCB6528313865005AC487 /* ErrorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorKey.swift; sourceTree = "<group>"; };
+		C37CCB69283138EA005AC487 /* StationsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsResponseModel.swift; sourceTree = "<group>"; };
+		C37CCB6B28313982005AC487 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		C37CCB6D283139AE005AC487 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		C37CCB6F283139BE005AC487 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		C37CCB71283139DE005AC487 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
+		C37CCB73283139FB005AC487 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		C37CCB7528313A0B005AC487 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		C37CCB7728313C6E005AC487 /* StationsRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsRequestModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +122,8 @@
 		C362E4D3282FF00400A53A26 /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
+				C37CCB672831389B005AC487 /* Services */,
+				C37CCB61283137C4005AC487 /* Utilities */,
 				C37CCB5328305FCE005AC487 /* Models */,
 				C37CCB5028305DE4005AC487 /* Managers */,
 				C37CCB4828300DE8005AC487 /* CustomComponents */,
@@ -139,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				C37CCB3E282FFB75005AC487 /* BaseVC.swift */,
-				C37CCB43283002DA005AC487 /* Constans.swift */,
 				C37CCB562830EF4C005AC487 /* MainTabbarController.swift */,
 			);
 			path = Base;
@@ -176,6 +197,8 @@
 			children = (
 				C37CCB5428305FDB005AC487 /* ShipDbManager.swift */,
 				C37CCB5128305DF6005AC487 /* DBManager.swift */,
+				C37CCB6D283139AE005AC487 /* ServiceManager.swift */,
+				C37CCB6F283139BE005AC487 /* LogManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -184,8 +207,47 @@
 			isa = PBXGroup;
 			children = (
 				C37CCB582830F1CC005AC487 /* Ship.swift */,
+				C37CCB71283139DE005AC487 /* RequestModel.swift */,
+				C37CCB73283139FB005AC487 /* ResponseModel.swift */,
+				C37CCB7528313A0B005AC487 /* ErrorModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C37CCB61283137C4005AC487 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB62283137CF005AC487 /* Constants */,
+				C37CCB6528313865005AC487 /* ErrorKey.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C37CCB62283137CF005AC487 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB43283002DA005AC487 /* Constans.swift */,
+				C37CCB63283137E0005AC487 /* ServiceConstans.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		C37CCB672831389B005AC487 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB68283138BF005AC487 /* Stations */,
+				C37CCB6B28313982005AC487 /* Services.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C37CCB68283138BF005AC487 /* Stations */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB69283138EA005AC487 /* StationsResponseModel.swift */,
+				C37CCB7728313C6E005AC487 /* StationsRequestModel.swift */,
+			);
+			path = Stations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,20 +365,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				C37CCB42282FFFDC005AC487 /* ViewController+Extension.swift in Sources */,
+				C37CCB7828313C6E005AC487 /* StationsRequestModel.swift in Sources */,
 				C37CCB5F28312F2F005AC487 /* TravelVM.swift in Sources */,
 				C37CCB592830F1CC005AC487 /* Ship.swift in Sources */,
+				C37CCB70283139BE005AC487 /* LogManager.swift in Sources */,
+				C37CCB6A283138EA005AC487 /* StationsResponseModel.swift in Sources */,
 				C362E4D5282FF00400A53A26 /* AppDelegate.swift in Sources */,
+				C37CCB7628313A0B005AC487 /* ErrorModel.swift in Sources */,
+				C37CCB6628313865005AC487 /* ErrorKey.swift in Sources */,
+				C37CCB72283139DE005AC487 /* RequestModel.swift in Sources */,
 				C37CCB4F28305C8C005AC487 /* UIView+Extension.swift in Sources */,
 				C37CCB5D2830F544005AC487 /* FavoritesVC.swift in Sources */,
 				C37CCB5B2830F51D005AC487 /* HomeVC.swift in Sources */,
 				C37CCB5528305FDB005AC487 /* ShipDbManager.swift in Sources */,
 				C37CCB4D2830554D005AC487 /* SpaceShipVM.swift in Sources */,
 				C37CCB5228305DF6005AC487 /* DBManager.swift in Sources */,
+				C37CCB74283139FB005AC487 /* ResponseModel.swift in Sources */,
+				C37CCB64283137E0005AC487 /* ServiceConstans.swift in Sources */,
+				C37CCB6C28313982005AC487 /* Services.swift in Sources */,
 				C37CCB572830EF4C005AC487 /* MainTabbarController.swift in Sources */,
 				C37CCB44283002DA005AC487 /* Constans.swift in Sources */,
 				C37CCB3F282FFB75005AC487 /* BaseVC.swift in Sources */,
 				C37CCB4A28300E1A005AC487 /* SliderView.swift in Sources */,
 				C37CCB3B282FFA6D005AC487 /* SpaceShipVC.swift in Sources */,
+				C37CCB6E283139AE005AC487 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

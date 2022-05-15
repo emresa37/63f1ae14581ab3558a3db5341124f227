@@ -101,6 +101,7 @@ class HomeVC: BaseVC {
         bind()
         registerNotifications()
         travelVM.startTimer()
+        travelVM.fetchStations()
     }
     
     private func registerNotifications() {
@@ -160,6 +161,8 @@ class HomeVC: BaseVC {
                 if value == 0 {
                     self.animateHealthLabel()
                 }
+            case .updateStations:
+                print("stations updated")
             }
         }
     }

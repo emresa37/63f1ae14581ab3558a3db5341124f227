@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct Constants {
-    
+    static let baseURL: String = "https://run.mocky.io/v3"
 }
 
 struct Notifications {

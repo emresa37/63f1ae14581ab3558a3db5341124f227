@@ -11,6 +11,7 @@ class TravelVM {
     
     enum Change {
         case updateTimer(value: Int)
+        case updateStations
     }
     
     var binder: ((_ change: Change) -> Void)?
@@ -23,6 +24,11 @@ class TravelVM {
     private var counter: Int = 0 {
         didSet {
             binder?(.updateTimer(value: counter))
+        }
+    }
+    var stations: [Station] = [] {
+        didSet {
+            binder?(.updateStations)
         }
     }
     
@@ -38,6 +44,19 @@ class TravelVM {
             counter = Int(damageInterval)
             if !Ship.shared.receiveDamage() {
                 print("Needs to get back to earth")
+            }
+        }
+    }
+    
+    func fetchStations() {
+        Services.stations() { result in
+            switch result {
+            case .success(let stations):
+                DispatchQueue.main.async {
+                    self.stations = stations
+                }
+            case .failure(let error):
+                print("error: \(error)")
             }
         }
     }
