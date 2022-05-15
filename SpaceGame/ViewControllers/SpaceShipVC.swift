@@ -32,8 +32,7 @@ class SpaceShipVC: BaseVC {
     
     private let pointsHolderView: UIView = {
         let view = UIView()
-        view.layer.borderWidth = 1.5
-        view.layer.borderColor = Colors.textColor.cgColor
+        view.addBorder(width: 1.5, color: Colors.textColor)
         return view
     }()
     
@@ -45,8 +44,7 @@ class SpaceShipVC: BaseVC {
 
     private let shipNameTF: UITextField = {
         let tf = UITextField()
-        tf.layer.borderWidth = 1.5
-        tf.layer.borderColor = Colors.textColor.cgColor
+        tf.addBorder(width: 1.5, color: Colors.textColor)
         tf.font = UIFont.systemFont(ofSize: 15)
         tf.placeholder = "Gemi adı"
         return tf
@@ -105,8 +103,8 @@ class SpaceShipVC: BaseVC {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        pointsHolderView.layer.borderColor = Colors.textColor.cgColor
-        shipNameTF.layer.borderColor = Colors.textColor.cgColor
+        pointsHolderView.addBorder(width: 1.5, color: Colors.textColor)
+        shipNameTF.addBorder(width: 1.5, color: Colors.textColor)
     }
     
     private func bind() {
@@ -202,9 +200,9 @@ class SpaceShipVC: BaseVC {
         handleCloseKeyboard()
         let name = shipNameTF.text
         if !(name != "") {
-            shipNameTF.layer.borderColor = UIColor.red.cgColor
+            shipNameTF.addBorder(width: 1.5, color: .red)
         } else if !viewModel.validatePoints() {
-            pointsHolderView.layer.borderColor = UIColor.red.cgColor
+            pointsHolderView.addBorder(width: 1.5, color: .red)
         } else {
             viewModel.saveShip(with: name!)
         }

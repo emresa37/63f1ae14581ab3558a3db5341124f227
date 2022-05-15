@@ -62,8 +62,7 @@ class HomeVC: BaseVC {
         let lbl = UILabel()
         lbl.textAlignment = .center
         lbl.font = UIFont.boldSystemFont(ofSize: 20)
-        lbl.layer.borderWidth = 1.5
-        lbl.layer.borderColor = Colors.textColor.cgColor
+        lbl.addBorder(width: 1.5, color: Colors.textColor)
         return lbl
     }()
     
@@ -71,8 +70,7 @@ class HomeVC: BaseVC {
         let lbl = UILabel()
         lbl.textAlignment = .center
         lbl.font = UIFont.systemFont(ofSize: 20)
-        lbl.layer.borderWidth = 1.5
-        lbl.layer.borderColor = Colors.textColor.cgColor
+        lbl.addBorder(width: 1.5, color: Colors.textColor)
         return lbl
     }()
     
@@ -83,6 +81,22 @@ class HomeVC: BaseVC {
         lbl.minimumScaleFactor = 0.5
         lbl.adjustsFontSizeToFitWidth = true
         return lbl
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.delegate = self
+        cv.dataSource = self
+        cv.register(StationCCell.self, forCellWithReuseIdentifier: "cellID")
+        cv.backgroundColor = .clear
+        cv.isPagingEnabled = true
+        cv.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        cv.showsHorizontalScrollIndicator = false
+        return cv
     }()
     
     private lazy var travelVM: TravelVM = {
@@ -113,12 +127,12 @@ class HomeVC: BaseVC {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        healthLabel.layer.borderColor = Colors.textColor.cgColor
-        timerLabel.layer.borderColor = Colors.textColor.cgColor
+        healthLabel.addBorder(width: 1.5, color: Colors.textColor)
+        timerLabel.addBorder(width: 1.5, color: Colors.textColor)
     }
     
     override func setupSubviews() {
-        [infoHolderStack, dividerView, healthHolderStack, shipNameLabel].forEach{view.addSubview($0)}
+        [infoHolderStack, dividerView, healthHolderStack, shipNameLabel, collectionView].forEach{view.addSubview($0)}
         [UGSLabel, EUSLabel, DSLabel].forEach{infoHolderStack.addArrangedSubview($0)}
         [healthLabel, timerLabel].forEach{healthHolderStack.addArrangedSubview($0)}
     }
@@ -150,6 +164,13 @@ class HomeVC: BaseVC {
             make.trailing.equalTo(healthHolderStack.snp.leading).offset(-10)
         }
         
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(shipNameLabel.snp.bottom).offset(40)
+            make.leading.equalToSuperview().offset(50)
+            make.trailing.equalToSuperview().offset(-50)
+            make.height.equalTo(view.snp.width).offset(-120)
+        }
+        
     }
     
     private func bind() {
@@ -162,16 +183,16 @@ class HomeVC: BaseVC {
                     self.animateHealthLabel()
                 }
             case .updateStations:
-                print("stations updated")
+                self.collectionView.reloadData()
             }
         }
     }
     
     private func animateHealthLabel() {
         UIView.animate(withDuration: 0.3, delay: 1, options: .curveEaseInOut) {
-            self.healthLabel.layer.borderColor = UIColor.red.cgColor
+            self.healthLabel.addBorder(width: 1.5, color: .red)
         } completion: { (true) in
-            self.healthLabel.layer.borderColor = Colors.textColor.cgColor
+            self.healthLabel.addBorder(width: 1.5, color: Colors.textColor)
         }
     }
     
@@ -183,4 +204,24 @@ class HomeVC: BaseVC {
         healthLabel.text = "\(Ship.shared.health)"
     }
 
+}
+
+
+extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return travelVM.stations.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as! StationCCell
+        let station = travelVM.stations[indexPath.row]
+        cell.configure(station: station)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: screenSize.width - 120, height: screenSize.width - 120)
+    }
+    
+    
 }
