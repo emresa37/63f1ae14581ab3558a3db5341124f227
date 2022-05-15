@@ -35,13 +35,27 @@ class Ship {
         self.speed = config.speed
         self.capacity = config.capacity
         
-        self.configureInitialValues()
+        configureInitialValues()
     }
     
     private func configureInitialValues() {
         UGS = capacity * 10000
         EUS = speed * 20
         DS = durability * 10000
+    }
+    
+    func receiveDamage() -> Bool {
+        health = health - 10
+        shipUpdated()
+        if health <= 0 {
+            return false
+        }else {
+            return true
+        }
+    }
+    
+    private func shipUpdated() {
+        NotificationCenter.default.post(name: Notification.Name(Notifications.shipUpdateNotification), object: nil)
     }
     
 }

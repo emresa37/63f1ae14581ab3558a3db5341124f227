@@ -24,6 +24,7 @@
 		C37CCB592830F1CC005AC487 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB582830F1CC005AC487 /* Ship.swift */; };
 		C37CCB5B2830F51D005AC487 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5A2830F51D005AC487 /* HomeVC.swift */; };
 		C37CCB5D2830F544005AC487 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5C2830F544005AC487 /* FavoritesVC.swift */; };
+		C37CCB5F28312F2F005AC487 /* TravelVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB5E28312F2F005AC487 /* TravelVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		C37CCB582830F1CC005AC487 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		C37CCB5A2830F51D005AC487 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		C37CCB5C2830F544005AC487 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
+		C37CCB5E28312F2F005AC487 /* TravelVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				C37CCB4C2830554D005AC487 /* SpaceShipVM.swift */,
+				C37CCB5E28312F2F005AC487 /* TravelVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C37CCB42282FFFDC005AC487 /* ViewController+Extension.swift in Sources */,
+				C37CCB5F28312F2F005AC487 /* TravelVM.swift in Sources */,
 				C37CCB592830F1CC005AC487 /* Ship.swift in Sources */,
 				C362E4D5282FF00400A53A26 /* AppDelegate.swift in Sources */,
 				C37CCB4F28305C8C005AC487 /* UIView+Extension.swift in Sources */,

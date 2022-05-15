@@ -85,15 +85,30 @@ class HomeVC: BaseVC {
         return lbl
     }()
     
+    private lazy var travelVM: TravelVM = {
+        let vm = TravelVM()
+        return vm
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        refreshData()
+        refreshShipData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        bind()
+        registerNotifications()
+        travelVM.startTimer()
+    }
+    
+    private func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshShipData), name: Notification.Name(Notifications.shipUpdateNotification), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, forKeyPath: Notifications.shipUpdateNotification)
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -136,7 +151,28 @@ class HomeVC: BaseVC {
         
     }
     
-    private func refreshData() {
+    private func bind() {
+        travelVM.binder  = { [weak self] (change) in
+            guard let self = self else { return }
+            switch change {
+            case .updateTimer(let value):
+                self.timerLabel.text = "\(value)"
+                if value == 0 {
+                    self.animateHealthLabel()
+                }
+            }
+        }
+    }
+    
+    private func animateHealthLabel() {
+        UIView.animate(withDuration: 0.3, delay: 1, options: .curveEaseInOut) {
+            self.healthLabel.layer.borderColor = UIColor.red.cgColor
+        } completion: { (true) in
+            self.healthLabel.layer.borderColor = Colors.textColor.cgColor
+        }
+    }
+    
+    @objc private func refreshShipData() {
         UGSLabel.text = "UGS : \(Ship.shared.UGS)"
         EUSLabel.text = "EUS : \(Ship.shared.EUS)"
         DSLabel.text = "DS : \(Ship.shared.DS)"

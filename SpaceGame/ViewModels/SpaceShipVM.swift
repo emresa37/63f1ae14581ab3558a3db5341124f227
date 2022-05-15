@@ -48,11 +48,7 @@ class SpaceShipVM {
     }
     
     private let localDB = ShipDbManager()
-    var binder: ((_ change: Change) -> Void)? {
-        didSet {
-            fetchShipData()
-        }
-    }
+    var binder: ((_ change: Change) -> Void)?
     
     func handleValueChange(for type: SliderType, value: Float) {
         switch type {

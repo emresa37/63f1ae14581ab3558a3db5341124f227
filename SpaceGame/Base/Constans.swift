@@ -12,6 +12,10 @@ struct Constants {
     
 }
 
+struct Notifications {
+    static let shipUpdateNotification = "shipUpdateNotification"
+}
+
 
 struct Colors {
     public static var backgroundColor: UIColor {

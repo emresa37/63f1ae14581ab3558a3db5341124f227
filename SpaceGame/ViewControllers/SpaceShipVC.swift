@@ -101,6 +101,7 @@ class SpaceShipVC: BaseVC {
         super.viewDidLoad()
 
         bind()
+        viewModel.fetchShipData()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
