@@ -90,7 +90,7 @@ class SpaceShipVM {
     
     func saveShip(with name: String) {
         if binder == nil {
-            return
+            fatalError("Error - you must have set 'binder' before save ship")
         }
         let ship = ShipDbModel(name: name,
                         durability: Int(durability),
