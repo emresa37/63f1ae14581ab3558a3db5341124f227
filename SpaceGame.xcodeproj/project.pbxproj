@@ -36,6 +36,8 @@
 		C37CCB7628313A0B005AC487 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB7528313A0B005AC487 /* ErrorModel.swift */; };
 		C37CCB7828313C6E005AC487 /* StationsRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB7728313C6E005AC487 /* StationsRequestModel.swift */; };
 		C37CCB7B2831895B005AC487 /* StationCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB7A2831895B005AC487 /* StationCCell.swift */; };
+		C37CCB7F2832B518005AC487 /* FavoritesDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB7E2832B518005AC487 /* FavoritesDBManager.swift */; };
+		C37CCB812832B7F4005AC487 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB802832B7F4005AC487 /* Favorites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		C37CCB7528313A0B005AC487 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		C37CCB7728313C6E005AC487 /* StationsRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsRequestModel.swift; sourceTree = "<group>"; };
 		C37CCB7A2831895B005AC487 /* StationCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCCell.swift; sourceTree = "<group>"; };
+		C37CCB7E2832B518005AC487 /* FavoritesDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDBManager.swift; sourceTree = "<group>"; };
+		C37CCB802832B7F4005AC487 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,10 +201,8 @@
 		C37CCB5028305DE4005AC487 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				C37CCB5428305FDB005AC487 /* ShipDbManager.swift */,
-				C37CCB5128305DF6005AC487 /* DBManager.swift */,
-				C37CCB6D283139AE005AC487 /* ServiceManager.swift */,
-				C37CCB6F283139BE005AC487 /* LogManager.swift */,
+				C37CCB7D2832B507005AC487 /* DB */,
+				C37CCB7C2832B4F7005AC487 /* Network */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -212,6 +214,7 @@
 				C37CCB71283139DE005AC487 /* RequestModel.swift */,
 				C37CCB73283139FB005AC487 /* ResponseModel.swift */,
 				C37CCB7528313A0B005AC487 /* ErrorModel.swift */,
+				C37CCB802832B7F4005AC487 /* Favorites.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +262,25 @@
 				C37CCB7A2831895B005AC487 /* StationCCell.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		C37CCB7C2832B4F7005AC487 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB6D283139AE005AC487 /* ServiceManager.swift */,
+				C37CCB6F283139BE005AC487 /* LogManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C37CCB7D2832B507005AC487 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB5428305FDB005AC487 /* ShipDbManager.swift */,
+				C37CCB5128305DF6005AC487 /* DBManager.swift */,
+				C37CCB7E2832B518005AC487 /* FavoritesDBManager.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,10 +417,12 @@
 				C37CCB74283139FB005AC487 /* ResponseModel.swift in Sources */,
 				C37CCB64283137E0005AC487 /* ServiceConstans.swift in Sources */,
 				C37CCB6C28313982005AC487 /* Services.swift in Sources */,
+				C37CCB7F2832B518005AC487 /* FavoritesDBManager.swift in Sources */,
 				C37CCB572830EF4C005AC487 /* MainTabbarController.swift in Sources */,
 				C37CCB44283002DA005AC487 /* Constans.swift in Sources */,
 				C37CCB3F282FFB75005AC487 /* BaseVC.swift in Sources */,
 				C37CCB4A28300E1A005AC487 /* SliderView.swift in Sources */,
+				C37CCB812832B7F4005AC487 /* Favorites.swift in Sources */,
 				C37CCB3B282FFA6D005AC487 /* SpaceShipVC.swift in Sources */,
 				C37CCB6E283139AE005AC487 /* ServiceManager.swift in Sources */,
 			);

@@ -251,6 +251,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 
 
 extension HomeVC: StationCCellProtocol {
+    func favoriteButtonClicked(for station: Station?) {
+        guard let station = station else { return }
+        travelVM.handleFavorite(for: station)
+    }
+    
     func travelButtonClicked(for station: Station?) {
         guard let station = station else { return }
         travelVM.travel(to: station)

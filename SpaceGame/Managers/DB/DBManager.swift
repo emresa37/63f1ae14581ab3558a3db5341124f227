@@ -49,6 +49,16 @@ class DBManager {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error creating table: \(errmsg)")
         }
+        
+        if sqlite3_exec(db, "create table if not exists " +
+                        "favorites " +
+                        "(name text, " +
+                        "coordinateX int, " +
+                        "coordinateY int)"
+                        , nil, nil, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error creating table: \(errmsg)")
+        }
     }
     
 }

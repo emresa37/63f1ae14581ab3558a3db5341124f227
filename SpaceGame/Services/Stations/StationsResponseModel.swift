@@ -40,4 +40,10 @@ struct Station: Codable {
         }
     }
     
+    var isFavorited: Bool {
+        get {
+            Favorites.shared.isFavorited(station: self)
+        }
+    }
+    
 }

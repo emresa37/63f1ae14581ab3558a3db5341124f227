@@ -89,4 +89,14 @@ class TravelVM {
         binder?(.needsToGetBackToEarth)
     }
     
+    func handleFavorite(for station: Station) {
+        if station.isFavorited {
+            Favorites.shared.removeFavorite(station: station)
+        }else {
+            Favorites.shared.addFavorite(station: station)
+        }
+        
+        binder?(.updateStations)
+    }
+    
 }

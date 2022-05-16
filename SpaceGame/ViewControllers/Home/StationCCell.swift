@@ -9,6 +9,7 @@ import UIKit
 
 protocol StationCCellProtocol: AnyObject {
     func travelButtonClicked(for station: Station?)
+    func favoriteButtonClicked(for station: Station?)
 }
 
 class StationCCell: UICollectionViewCell {
@@ -134,6 +135,11 @@ class StationCCell: UICollectionViewCell {
     
     private func setupActions() {
         travelButton.addTarget(self, action: #selector(handleTravelButton), for: .touchUpInside)
+        favoriteButton.addTarget(self, action: #selector(handleFavoriteButton), for: .touchUpInside)
+    }
+    
+    @objc private func handleFavoriteButton() {
+        delegate.favoriteButtonClicked(for: station)
     }
     
     @objc private func handleTravelButton() {
@@ -155,7 +161,7 @@ class StationCCell: UICollectionViewCell {
             isTravelButtonActive = true
         }
         
-        isFavorited = true
+        isFavorited = station.isFavorited
     }
     
     private func updateFavoriteButton() {
