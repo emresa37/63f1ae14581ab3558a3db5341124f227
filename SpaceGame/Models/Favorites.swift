@@ -10,7 +10,7 @@ import Foundation
 class Favorites {
     static let shared = Favorites()
     private let localDB = FavoritesDBManager()
-    private var favorites = [FavoritesDBModel]()
+    fileprivate(set) var favorites = [FavoritesDBModel]()
     
     init() {
         localDB.fetchFromDB { [weak self] favorites in
