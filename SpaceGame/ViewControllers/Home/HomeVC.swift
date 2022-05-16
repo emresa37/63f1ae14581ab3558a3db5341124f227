@@ -201,6 +201,10 @@ class HomeVC: BaseVC {
             case .updateStations:
                 self.collectionView.reloadData()
                 self.refreshShipData()
+            case .needsToGetBackToEarth:
+                self.collectionView.reloadData()
+                let index = IndexPath(row: 0, section: 0)
+                self.collectionView.scrollToItem(at: index, at: .left, animated: true)
             }
         }
     }

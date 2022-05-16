@@ -44,6 +44,7 @@ class Ship {
         UGS = capacity * 10000
         EUS = speed * 20
         DS = durability * 10000
+        health = 100
     }
     
     func receiveDamage() -> Bool {
@@ -75,6 +76,30 @@ class Ship {
         setCurrentStation(station: station)
         shipUpdated()
         return travelPoint
+    }
+    
+    func refreshShip() {
+        configureInitialValues()
+        shipUpdated()
+    }
+    
+    func canTravel(stations: [Station]) -> Bool {
+        return hasEnoughtTimeToTravel(stations: stations) && hasEnoughtHealthToTravel() && hasEnoughtMaterialToTravel()
+    }
+    
+    private func hasEnoughtTimeToTravel(stations: [Station]) -> Bool {
+        let stationList = stations.filter({
+            ($0.name != currentStation?.name) && ($0.travelTime <= EUS)
+        })
+        return stationList.count > 0
+    }
+    
+    private func hasEnoughtMaterialToTravel() -> Bool {
+        return UGS > 0
+    }
+    
+    private func hasEnoughtHealthToTravel() -> Bool {
+        return health > 0
     }
     
     private func shipUpdated() {

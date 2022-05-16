@@ -36,7 +36,7 @@ struct Station: Codable {
     
     var canTravel: Bool {
         get {
-            return (Ship.shared.EUS > travelTime) && (Ship.shared.UGS > 0)
+            return (Ship.shared.EUS > travelTime) && (Ship.shared.UGS > 0) && ((need ?? 0) > 0)
         }
     }
     

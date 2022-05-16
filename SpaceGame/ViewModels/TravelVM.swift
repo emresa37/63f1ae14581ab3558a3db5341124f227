@@ -12,6 +12,7 @@ class TravelVM {
     enum Change {
         case updateTimer(value: Int)
         case updateStations
+        case needsToGetBackToEarth
     }
     
     var binder: ((_ change: Change) -> Void)?
@@ -43,7 +44,7 @@ class TravelVM {
         }else {
             counter = Int(damageInterval)
             if !Ship.shared.receiveDamage() {
-                print("Needs to get back to earth")
+                getBackToEarth()
             }
         }
     }
@@ -71,7 +72,21 @@ class TravelVM {
             })
             guard let index = travelledIndex else { return }
             stations[index] = travelledStation
+            checkIfCanTravel()
         }
+    }
+    
+    private func checkIfCanTravel() {
+        if !Ship.shared.canTravel(stations: stations) {
+            getBackToEarth()
+        }
+    }
+    
+    private func getBackToEarth() {
+        guard let first = stations.first else { return }
+        Ship.shared.setCurrentStation(station: first)
+        Ship.shared.refreshShip()
+        binder?(.needsToGetBackToEarth)
     }
     
 }
