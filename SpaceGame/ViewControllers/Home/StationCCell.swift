@@ -51,11 +51,31 @@ class StationCCell: UICollectionViewCell {
         return button
     }()
     
+    private let favoriteButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
+    
+    
     weak var delegate: StationCCellProtocol!
     private var station: Station?
     private var isTravelButtonActive: Bool = true {
         didSet {
             travelButton.backgroundColor = isTravelButtonActive ? UIColor.systemBlue : Colors.textColor.withAlphaComponent(0.3)
+        }
+    }
+    private var isFavorited: Bool = false {
+        didSet {
+            updateFavoriteButton()
+        }
+    }
+    private var favoriteIcon: UIImage? {
+        get {
+            if isFavorited {
+                return UIImage(named: "favoriteFilled")?.mask(with: Colors.textColor)
+            }else {
+                return UIImage(named: "favoriteEmpty")?.mask(with: Colors.textColor)
+            }
         }
     }
     
@@ -73,7 +93,7 @@ class StationCCell: UICollectionViewCell {
     
     private func setupSubviews() {
         [holderView].forEach{contentView.addSubview($0)}
-        [capacityLabel, eusLabel, stationNameLabel, travelButton].forEach{holderView.addSubview($0)}
+        [capacityLabel, eusLabel, stationNameLabel, travelButton, favoriteButton].forEach{holderView.addSubview($0)}
     }
     
     private func setupLayouts() {
@@ -104,6 +124,12 @@ class StationCCell: UICollectionViewCell {
             make.height.equalTo(40)
         }
         
+        favoriteButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
+            make.height.width.equalTo(40)
+        }
+        
     }
     
     private func setupActions() {
@@ -128,6 +154,12 @@ class StationCCell: UICollectionViewCell {
         }else {
             isTravelButtonActive = true
         }
+        
+        isFavorited = true
+    }
+    
+    private func updateFavoriteButton() {
+        favoriteButton.setImage(favoriteIcon, for: .normal)
     }
     
     required init?(coder: NSCoder) {
