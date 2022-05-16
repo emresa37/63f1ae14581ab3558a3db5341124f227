@@ -27,11 +27,12 @@ class FavoritesVC: BaseVC {
         let tv = UITableView(frame: .zero, style: .grouped)
         tv.delegate = self
         tv.dataSource = self
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")
+        tv.register(FavoritesTCell.self, forCellReuseIdentifier: "cellID")
         tv.separatorStyle = .none
         tv.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 50, right: 0)
         tv.backgroundColor = .clear
         tv.bounces = false
+        tv.allowsSelection = false
         return tv
     }()
     
@@ -79,11 +80,19 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! FavoritesTCell
         let fav = Favorites.shared.favorites[indexPath.row]
-        cell.textLabel?.text = fav.name
+        cell.config(item: fav)
+        cell.delegate = self
         return cell
     }
     
     
+}
+
+extension FavoritesVC: FavoritesTCellProtocol {
+    func favoriteButtonClicked(for item: FavoritesDBModel) {
+        Favorites.shared.removeFavorite(name: item.name)
+        self.tableView.reloadData()
+    }
 }

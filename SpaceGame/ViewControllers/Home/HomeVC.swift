@@ -117,6 +117,7 @@ class HomeVC: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         refreshShipData()
+        collectionView.reloadData()
     }
 
     override func viewDidLoad() {

@@ -91,7 +91,7 @@ class TravelVM {
     
     func handleFavorite(for station: Station) {
         if station.isFavorited {
-            Favorites.shared.removeFavorite(station: station)
+            Favorites.shared.removeFavorite(name: station.name ?? "")
         }else {
             Favorites.shared.addFavorite(station: station)
         }

@@ -90,6 +90,7 @@ class StationCCell: UICollectionViewCell {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         holderView.addBorder(width: 1.5, color: Colors.textColor)
+        favoriteButton.setImage(favoriteIcon, for: .normal)
     }
     
     private func setupSubviews() {

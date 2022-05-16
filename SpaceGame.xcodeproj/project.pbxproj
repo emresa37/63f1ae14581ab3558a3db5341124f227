@@ -38,6 +38,7 @@
 		C37CCB7B2831895B005AC487 /* StationCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB7A2831895B005AC487 /* StationCCell.swift */; };
 		C37CCB7F2832B518005AC487 /* FavoritesDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB7E2832B518005AC487 /* FavoritesDBManager.swift */; };
 		C37CCB812832B7F4005AC487 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB802832B7F4005AC487 /* Favorites.swift */; };
+		C37CCB842832D742005AC487 /* FavoritesTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37CCB832832D742005AC487 /* FavoritesTCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		C37CCB7A2831895B005AC487 /* StationCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCCell.swift; sourceTree = "<group>"; };
 		C37CCB7E2832B518005AC487 /* FavoritesDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDBManager.swift; sourceTree = "<group>"; };
 		C37CCB802832B7F4005AC487 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		C37CCB832832D742005AC487 /* FavoritesTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +160,7 @@
 			children = (
 				C37CCB3A282FFA6D005AC487 /* SpaceShipVC.swift */,
 				C37CCB792831893E005AC487 /* Home */,
-				C37CCB5C2830F544005AC487 /* FavoritesVC.swift */,
+				C37CCB822832D731005AC487 /* Favorites */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -281,6 +283,15 @@
 				C37CCB7E2832B518005AC487 /* FavoritesDBManager.swift */,
 			);
 			path = DB;
+			sourceTree = "<group>";
+		};
+		C37CCB822832D731005AC487 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				C37CCB5C2830F544005AC487 /* FavoritesVC.swift */,
+				C37CCB832832D742005AC487 /* FavoritesTCell.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,6 +427,7 @@
 				C37CCB5228305DF6005AC487 /* DBManager.swift in Sources */,
 				C37CCB74283139FB005AC487 /* ResponseModel.swift in Sources */,
 				C37CCB64283137E0005AC487 /* ServiceConstans.swift in Sources */,
+				C37CCB842832D742005AC487 /* FavoritesTCell.swift in Sources */,
 				C37CCB6C28313982005AC487 /* Services.swift in Sources */,
 				C37CCB7F2832B518005AC487 /* FavoritesDBManager.swift in Sources */,
 				C37CCB572830EF4C005AC487 /* MainTabbarController.swift in Sources */,

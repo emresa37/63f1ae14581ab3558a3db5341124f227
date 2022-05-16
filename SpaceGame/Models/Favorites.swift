@@ -32,12 +32,18 @@ class Favorites {
         localDB.addFavorite(input: model)
     }
     
-    func removeFavorite(station: Station) {
+    func removeFavorite(name: String) {
         favorites.removeAll(where: {
-            $0.name == station.name
+            $0.name == name
         })
         
-        localDB.removeFavorite(name: station.name ?? "")
+        localDB.removeFavorite(name: name)
+    }
+    
+    func calculateTravelTime(for item: FavoritesDBModel) -> Int {
+        let xWay = abs(item.coordinateX)
+        let yWay = abs(item.coordinateY)
+        return Int(xWay + yWay)
     }
     
 }
