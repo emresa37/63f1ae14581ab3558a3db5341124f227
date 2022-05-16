@@ -99,6 +99,16 @@ class HomeVC: BaseVC {
         return cv
     }()
     
+    private let currentStationLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont.boldSystemFont(ofSize: 30)
+        lbl.numberOfLines = 2
+        lbl.minimumScaleFactor = 0.5
+        lbl.adjustsFontSizeToFitWidth = true
+        lbl.textAlignment = .center
+        return lbl
+    }()
+    
     private lazy var travelVM: TravelVM = {
         let vm = TravelVM()
         return vm
@@ -132,7 +142,7 @@ class HomeVC: BaseVC {
     }
     
     override func setupSubviews() {
-        [infoHolderStack, dividerView, healthHolderStack, shipNameLabel, collectionView].forEach{view.addSubview($0)}
+        [infoHolderStack, dividerView, healthHolderStack, shipNameLabel, collectionView, currentStationLabel].forEach{view.addSubview($0)}
         [UGSLabel, EUSLabel, DSLabel].forEach{infoHolderStack.addArrangedSubview($0)}
         [healthLabel, timerLabel].forEach{healthHolderStack.addArrangedSubview($0)}
     }
@@ -171,6 +181,12 @@ class HomeVC: BaseVC {
             make.height.equalTo(view.snp.width).offset(-120)
         }
         
+        currentStationLabel.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom).offset(40)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+        
     }
     
     private func bind() {
@@ -184,6 +200,7 @@ class HomeVC: BaseVC {
                 }
             case .updateStations:
                 self.collectionView.reloadData()
+                self.refreshShipData()
             }
         }
     }
@@ -202,6 +219,7 @@ class HomeVC: BaseVC {
         DSLabel.text = "DS : \(Ship.shared.DS)"
         shipNameLabel.text = Ship.shared.name
         healthLabel.text = "\(Ship.shared.health)"
+        currentStationLabel.text = Ship.shared.currentStation?.name
     }
 
 }

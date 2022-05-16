@@ -64,7 +64,7 @@ class Ship {
         var travelPoint = station
         EUS = EUS - travelPoint.travelTime
         if UGS > (travelPoint.need ?? 0) {
-            UGS = travelPoint.need ?? 0
+            UGS = UGS - (travelPoint.need ?? 0)
             travelPoint.stock = (travelPoint.stock ?? 0) + (travelPoint.need ?? 0)
             travelPoint.need = 0
         }else {
