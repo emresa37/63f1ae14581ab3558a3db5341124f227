@@ -83,6 +83,13 @@ class HomeVC: BaseVC {
         return lbl
     }()
     
+    private let searchField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Ara"
+        tf.addBorder(width: 1.5, color: Colors.textColor)
+        return tf
+    }()
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 20
@@ -140,10 +147,11 @@ class HomeVC: BaseVC {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         healthLabel.addBorder(width: 1.5, color: Colors.textColor)
         timerLabel.addBorder(width: 1.5, color: Colors.textColor)
+        searchField.addBorder(width: 1.5, color: Colors.textColor)
     }
     
     override func setupSubviews() {
-        [infoHolderStack, dividerView, healthHolderStack, shipNameLabel, collectionView, currentStationLabel].forEach{view.addSubview($0)}
+        [infoHolderStack, dividerView, healthHolderStack, shipNameLabel, searchField, collectionView, currentStationLabel].forEach{view.addSubview($0)}
         [UGSLabel, EUSLabel, DSLabel].forEach{infoHolderStack.addArrangedSubview($0)}
         [healthLabel, timerLabel].forEach{healthHolderStack.addArrangedSubview($0)}
     }
@@ -175,8 +183,15 @@ class HomeVC: BaseVC {
             make.trailing.equalTo(healthHolderStack.snp.leading).offset(-10)
         }
         
+        searchField.snp.makeConstraints { make in
+            make.top.equalTo(shipNameLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(40)
+        }
+        
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(shipNameLabel.snp.bottom).offset(40)
+            make.top.equalTo(searchField.snp.bottom).offset(40)
             make.leading.equalToSuperview().offset(50)
             make.trailing.equalToSuperview().offset(-50)
             make.height.equalTo(view.snp.width).offset(-120)
@@ -188,6 +203,20 @@ class HomeVC: BaseVC {
             make.trailing.equalToSuperview().offset(-20)
         }
         
+    }
+    
+    override func setupActions() {
+        searchField.addTarget(self, action: #selector(handleSarch), for: .editingChanged)
+        view.addTarget(self, action: #selector(handleCloseKeyboard))
+    }
+    
+    @objc private func handleSarch() {
+        guard let text = searchField.text else { return }
+        travelVM.search(text: text)
+    }
+    
+    @objc private func handleCloseKeyboard() {
+        view.endEditing(true)
     }
     
     private func bind() {

@@ -27,11 +27,28 @@ class TravelVM {
             binder?(.updateTimer(value: counter))
         }
     }
-    var stations: [Station] = [] {
-        didSet {
+    
+    private var _stations = [Station]()
+    private var _filtered_stations = [Station]()
+    
+    var stations: [Station] {
+        get {
+            if isFiltering {
+                return _filtered_stations
+            } else {
+                return _stations
+            }
+        }set {
+            if isFiltering {
+                _filtered_stations = newValue
+            } else {
+                _stations = newValue
+            }
             binder?(.updateStations)
         }
     }
+    
+    private var isFiltering = false
     
     func startTimer() {
         counter = Int(damageInterval)
@@ -97,6 +114,18 @@ class TravelVM {
         }
         
         binder?(.updateStations)
+    }
+    
+    func search(text: String) {
+        if text.count > 0 {
+            isFiltering = true
+            stations = _stations.filter({
+                $0.name?.localizedCaseInsensitiveContains(text) ?? false
+            })
+        }else {
+            isFiltering = false
+            stations = _stations
+        }
     }
     
 }
